@@ -34,6 +34,7 @@ function quickSortDo(arr, left, right) {
 
     while (i !== j) {
         // 从右开始左找小于基准的数，一定要先从右往左找
+        // 为什么呢？j 先走，确保最后 j 在的位置肯定 小于等于 基数，万一与 i 重合，那么这个位置交换到开头即可
         while (arr[j] >= base && i < j) {
             j--;
         }
