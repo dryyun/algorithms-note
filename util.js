@@ -15,6 +15,16 @@ class Util {
         }
         return arr;
     }
+
+    /**
+     * 生成 length 长度，每个元素都为 init 的数组
+     * @param length
+     * @param init
+     */
+    static fillArray(length, init = 0) {
+        return new Array(length).fill(init);
+    }
+
 }
 
 module.exports = Util;

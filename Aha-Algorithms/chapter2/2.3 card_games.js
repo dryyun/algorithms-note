@@ -5,13 +5,14 @@
  */
 "use strict";
 
+const util = require('../../util.js');
 const Queue = require('./Queue.js');
 const Stack = require('./Stack.js');
 
 let q1 = new Queue(),
     q2 = new Queue(),
     stack = new Stack(),
-    book = [];
+    book = util.fillArray(10);
 
 [2, 4, 1, 2, 5, 6].forEach((val) => {
     q1.enqueue(val);
@@ -23,7 +24,7 @@ let q1 = new Queue(),
 
 while (!q1.isEmpty() && !q2.isEmpty()) {
     let tmp = q1.dequeue();
-    if (book[tmp] === undefined || book[tmp] === 0) {
+    if (!book[tmp]) {
         stack.push(tmp);
         book[tmp] = 1;
     } else {
@@ -44,7 +45,7 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
     }
 
     tmp = q2.dequeue();
-    if (book[tmp] === undefined || book[tmp] === 0) {
+    if (!book[tmp]) {
         stack.push(tmp);
         book[tmp] = 1;
     } else {

@@ -25,13 +25,13 @@ console.log('排序数组', arr);
  * @returns {Array}
  */
 function bucketSort(min, max, arr) {
-    let tmp = [], result = [];
+    let book = util.fillArray(max - min + 1), result = [];
     for (let i = 0; i < arr.length; i++) {
         let index = arr[i] - min;
-        tmp[index] ? tmp[index]++ : tmp[index] = 1;
+        book[index]++;
     }
 
-    tmp.forEach((val, key) => {
+    book.forEach((val, key) => {
         if (val > 0) {
             for (let i = 0; i < val; i++) {
                 result.push(key + min)
