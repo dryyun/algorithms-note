@@ -5,7 +5,7 @@
 
 const util = require('../../util.js')
 
-let arr = util.rangArray(4, 99, 10);
+let arr = util.randomArray(4, 99, 10);
 
 console.log('随机数组', arr);
 

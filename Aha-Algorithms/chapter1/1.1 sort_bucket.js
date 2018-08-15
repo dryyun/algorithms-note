@@ -8,7 +8,7 @@ const util = require('../../util.js');
 let min = 10,
     max = 99,
     size = 20;
-let arr = util.rangArray(min, max, size);
+let arr = util.randomArray(min, max, size);
 
 console.log('随机数组', arr);
 
