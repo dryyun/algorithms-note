@@ -34,6 +34,26 @@ class Queue {
     isEmpty() {
         return this.head === this.tail;
     }
+
+    /**
+     * 获取队列第一个元素
+     */
+    first() {
+        if (!this.isEmpty()) {
+            return this.data[this.head];
+        }
+        throw new Error('queue is empty');
+    }
+
+    /**
+     * 获取队列最后一个元素
+     */
+    last() {
+        if (!this.isEmpty()) {
+            return this.data[this.tail - 1];
+        }
+        throw new Error('queue is empty');
+    }
 }
 
 module.exports = Queue;
