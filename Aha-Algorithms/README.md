@@ -13,10 +13,10 @@
 
 目录
 - [第1章 排序](/chapter1)
-- [第2章 栈、队列、链表](/chapter1)
-- [第3章 枚举](/chapter1)
-- [第4章 搜索](/chapter1)
-- [第5章 图的遍历](/chapter1)
-- [第6章 最短路径](/chapter1)
-- [第7章 树](/chapter1)
-- [第8章 更多算法](/chapter1)
+- [第2章 栈、队列、链表](/chapter2)
+- [第3章 枚举](/chapter3)
+- [第4章 搜索](/chapter4)
+- [第5章 图的遍历](/chapter5)
+- [第6章 最短路径](/chapter6)
+- [第7章 树](/chapter7)
+- [第8章 更多算法](/chapter8)
