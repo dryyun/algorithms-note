@@ -65,8 +65,9 @@ while (!queue.isEmpty()) {
 }
 
 if (1 === flag) {
-    console.log('倒序展示顺序');
     let node = queue.last();
+    console.log('运行结果', node.step);
+    console.log('倒序展示顺序');
     while (node.parent) {
         console.log(node.coord);
         node = node.parent;
