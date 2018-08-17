@@ -22,13 +22,14 @@ var dis = map[start]; // 顶点 0 到其余顶点的距离
 var book = util.fillArray(n);
 book[start] = 1;
 
-var u;
-
 
 console.log('计算前顶点 0 到其余顶点路径', dis);
 
-for (let i = 0; i < n; i++) {
+for (let i = 1; i < n; i++) {
     let min = M;
+    let u;
+
+    // 找到离源点最近的点 u
     for (let j = 0; j < n; j++) {
         if (book[j] === 0 && dis[j] < min) {
             min = dis[j];
@@ -36,14 +37,18 @@ for (let i = 0; i < n; i++) {
         }
     }
 
-    book[u] = 1;
-    for (let v = 0; v <= n; v++) {
-        if (map[u][v] < M) { // 表示 u->v 可直接到达
-            if (dis[v] > dis[u] + map[u][v]) {
-                dis[v] = dis[u] + map[u][v];
+    if (u) {
+        book[u] = 1;
+        // 根据 u 点，更新所有 u 可到达的点的距离
+        for (let v = 0; v <= n; v++) {
+            if (map[u][v] < M) { // 表示 u->v 可直接到达
+                if (dis[v] > dis[u] + map[u][v]) {
+                    dis[v] = dis[u] + map[u][v];
+                }
             }
         }
     }
+
 }
 
 console.log('计算后顶点 0 到其余顶点路径', dis);
