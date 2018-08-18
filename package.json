@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "deasync": "^0.1.13",
     "lodash": "^4.17.10"
   }
 }

@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const readline = require("readline");
 
 class Util {
     /**
@@ -23,6 +24,42 @@ class Util {
      */
     static fillArray(length, init = 0) {
         return new Array(length).fill(init);
+    }
+
+    /**
+     * 读入行
+     * @param question
+     * @returns {*}
+     */
+    static readline(question = '') {
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+
+        let done = false;
+        let data;
+        rl.question(question, function cb(res) {
+            data = res;
+            done = true;
+        });
+        require('deasync').loopWhile(function () {
+            return !done;
+        });
+
+        return data;
+    }
+
+    /**
+     * 分割字符串
+     * @param line
+     * @returns {T[]}
+     */
+    static split(line) {
+        let arr = line.split(' ');
+        return arr.filter((data) => {
+            return data.length > 0;
+        })
     }
 
 }
