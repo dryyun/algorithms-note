@@ -26,6 +26,14 @@ class Util {
         return new Array(length).fill(init);
     }
 
+    static fillTwoArray(rows, cols, init = 0) {
+        let arr = Util.fillArray(rows, init);
+        for (let i = 0; i < rows; i++) {
+            arr[i] = Util.fillArray(cols, init);
+        }
+        return arr;
+    }
+
     /**
      * 读入行
      * @param question
@@ -42,6 +50,7 @@ class Util {
         rl.question(question, function cb(res) {
             data = res;
             done = true;
+            rl.close();
         });
         require('deasync').loopWhile(function () {
             return !done;
@@ -53,14 +62,20 @@ class Util {
     /**
      * 分割字符串
      * @param line
+     * @param to
      * @returns {T[]}
      */
-    static split(line) {
+    static split(line, to = 'integer') {
         let arr = line.split(' ');
-        return arr.filter((data) => {
+        arr = arr.filter((data) => {
             return data.length > 0;
         })
+        if ('integer' === to) {
+            arr = arr.map(x => _.toInteger(x));
+        }
+        return arr;
     }
+
 
 }
 
