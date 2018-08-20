@@ -26,6 +26,13 @@ class Util {
         return new Array(length).fill(init);
     }
 
+    /**
+     * 生成二维数组
+     * @param rows
+     * @param cols
+     * @param init
+     * @returns {Array}
+     */
     static fillTwoArray(rows, cols, init = 0) {
         let arr = Util.fillArray(rows, init);
         for (let i = 0; i < rows; i++) {
@@ -69,7 +76,7 @@ class Util {
         let arr = line.split(' ');
         arr = arr.filter((data) => {
             return data.length > 0;
-        })
+        });
         if ('integer' === to) {
             arr = arr.map(x => _.toInteger(x));
         }

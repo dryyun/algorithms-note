@@ -15,6 +15,7 @@ var map = [
 var result = new Map();
 var n = map.length;
 
+// 从 i 顶点到 j 顶点只经过前 k 个顶点的最短路径
 for (let k = 0; k < n; k++) {
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
