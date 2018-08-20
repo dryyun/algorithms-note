@@ -5,7 +5,7 @@
 
 const func = require('./6.1 alg.js');
 
-const M = 99999;
+const M = Number.MAX_SAFE_INTEGER;
 
 var map = [
     [0, 2, 6, 4],
