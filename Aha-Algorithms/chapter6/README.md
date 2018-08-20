@@ -34,6 +34,25 @@ for (let k = 0; k < n; k++) {
 
 时间复杂度 O(N<sup>2</sup>)  
 
+```js
+for (i = 1; i < n; i++) {
+    min = inf;
+    for (j = 0; j < n; j++) {
+        if (book[j] === 0 && dis[j] < min) {
+            min = dis[j];
+            u = j;
+        }
+    }
+    book[u] = 1;
+    for (v = 0; v < n; v++) {
+        if (e[u][v] < inf) {
+            if (dis[v] > dis[u] + e[u][v]) {
+                dis[v] = dis[u] + e[u][v]
+            }
+        }
+    }
+} 
+```
 
 ## Bellman-Ford - 解决负权边  
 
