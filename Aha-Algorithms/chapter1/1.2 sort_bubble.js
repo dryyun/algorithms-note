@@ -3,7 +3,7 @@
  */
 "use strict";
 
-const util = require('../../util.js')
+const util = require('../../util.js');
 
 let arr = util.randomArray(4, 99, 10);
 
