@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "deasync": "^0.1.13",
+    "double-ended-queue": "^2.1.0-0",
     "lodash": "^4.17.10"
   }
 }

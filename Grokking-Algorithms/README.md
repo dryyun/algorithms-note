@@ -8,6 +8,8 @@
 查看 [源码 GitHub](https://github.com/egonSchiele/grokking_algorithms) 会发现对每一章节的算法都存在不同语言的代码实现，只要给作者提 PR 就行    
 
 
+> 这本书的很多概念还真是点到为止，就提个概念就没了  
+
 目录  
 - [第1章 算法简介](./chapter1)
 - [第2章 选择排序](./chapter2)
