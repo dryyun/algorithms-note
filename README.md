@@ -11,4 +11,4 @@
 
 目录
 - [《啊哈!算法》代码 JS 实现](./Aha-Algorithms)  
-- [《算法图解》](./Grokking-Algorithms)  
+- [《算法图解》代码 JS 实现](./Grokking-Algorithms)  
