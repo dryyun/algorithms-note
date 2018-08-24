@@ -83,6 +83,31 @@ class Util {
         return arr;
     }
 
+    /**
+     * 集合的 并、交、差集操作
+     * @param op string union、intersect、diff
+     * @param setA
+     * @param setB
+     * @param setOthers
+     */
+    static setOperate(op, setA, setB, ...setOthers) {
+        let params = [];
+        params.push([...setA]);
+        params.push([...setB]);
+        setOthers.forEach(s => {
+            params.push([...s]);
+        });
+        if ('union' === op) { // 并集
+            return new Set(_.union(...params));
+        }
+        if ('intersect' === op) { // 交集，返回一个集合，包含了所有在 a 中也同时出现在所有其它集合中的值
+            return new Set(_.intersection(...params));
+        }
+        if ('diff' === op) { // 差集，返回一个集合，包含在 a 但不包含在其他集合中的值
+            return new Set(_.difference(...params));
+        }
+        return null;
+    }
 
 }
 
