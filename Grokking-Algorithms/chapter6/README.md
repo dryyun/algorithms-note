@@ -2,8 +2,8 @@
 
 > 在我所知道的算法中，图算法应该是最有用的。  
 
-广度优先搜索（breadth-first search，BFS） 
-最短路径问题（shortest-path problem）  
+广度优先搜索（breadth-first search，BFS）   
+最短路径问题（shortest-path problem）    
 
 ## 图
 
