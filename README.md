@@ -8,6 +8,7 @@
 > [JavaScript 算法与数据结构](https://github.com/trekhleb/javascript-algorithms)  
 > [十大经典排序算](https://github.com/hustcc/JS-Sorting-Algorithm)    
 > [Leetcode Solutions with JavaScript](https://github.com/hanzichi/leetcode)  
+> [LeetCode-in-Go](https://github.com/aQuaYi/LeetCode-in-Go)  
 
 工具  
 > [leetcode cli](https://github.com/skygragon/leetcode-cli) 针对 https://leetcode.com/ 使用  
