@@ -3,6 +3,9 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
+
+const {LeetCode, ListNode} = require('../../leetcode.js');
+
 var addTwoNumbers = function (l1, l2) {
     let list = null;
     let node = null;
@@ -40,11 +43,10 @@ var addTwoNumbers = function (l1, l2) {
     return list;
 };
 
+let l1 = LeetCode.arrToList([2, 4, 3]);
+let l2 = LeetCode.arrToList([5, 6, 4]);
 
-//Definition for singly-linked list.
-function ListNode(val) {
-    this.val = val;
-    this.next = null;
-}
+let list = addTwoNumbers(l1, l2);
+LeetCode.showList(list);
 
 
