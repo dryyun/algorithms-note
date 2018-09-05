@@ -50,7 +50,9 @@ https://leetcode-cn.com/problems/same-tree/description/
 
 ## 思路
 
-通过 LeetCode.binaryTreeToArr 转成 arr.toString() ，比较字符串是否相等，可行，但是效率低 ，一提交也能战胜 50 % ？
+通过 LeetCode.binaryTreeToArr 转成 arr.toString() ，比较字符串是否相等，可行，但是效率低。
+
+
 
 
 
