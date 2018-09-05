@@ -100,17 +100,26 @@ class LeetCode {
         }
 
         let stack = [];
-        stack.push(head);
+        stack.push([1, head]);
 
         let arr = [];
+        let num;
+        let node;
         while (stack.length) {
-            let node = stack.shift();
-            arr.push(node ? node.val : null);
+            [num, node] = stack.shift();
+
+            arr[num] = node.val;
             if (node.left) {
-                node ? stack.push(node.left) : stack.push(null);
+                stack.push([num * 2, node.left]);
             }
             if (node.right) {
-                node ? stack.push(node.right) : stack.push(null);
+                stack.push([num * 2 + 1, node.right]);
+            }
+        }
+        arr = arr.slice(1);
+        for (let i = 0, len = arr.length; i < len; i++) {
+            if (arr[i] === undefined) {
+                arr[i] = null;
             }
         }
         return arr;
