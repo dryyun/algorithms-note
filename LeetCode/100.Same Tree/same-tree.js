@@ -25,34 +25,33 @@ function binaryTreeToArr(head) {
     let stack = [];
     stack.push([1, head]);
 
-    let arr = [];
+    let arr = Array(10).fill(null);
+    let len = 10;
     let num;
     let node;
     while (stack.length) {
         [num, node] = stack.shift();
 
-        arr[num] = node.val;
         if (node.left) {
             stack.push([num * 2, node.left]);
         }
         if (node.right) {
             stack.push([num * 2 + 1, node.right]);
         }
-    }
-    arr = arr.slice(1);
-    for (let i = 0, len = arr.length; i < len; i++) {
-        if (arr[i] === undefined) {
-            arr[i] = null;
+        if (num > len) {
+            arr = arr.concat(Array(len).fill(null));
+            len = len * 2;
         }
+        arr[num] = node.val;
     }
-    return arr;
+    return arr.slice(1, num + 1);
 }
 
-let nums = [1, 2, 3, null, 5, null, 7, null, null, null, null, null, null, 14];
-// let nums = [1, null, 3];
-console.log(nums);
-let tree = LeetCode.arrToBinaryTree(nums);
-// console.log(tree);
+let a = [1, 2, 3];
+let at = LeetCode.arrToBinaryTree(a);
+let b = [1, null, 3];
+let bt = LeetCode.arrToBinaryTree(b);
+console.log(isSameTree(at, bt));
 
-let arr = LeetCode.binaryTreeToArr(tree);
-console.log(arr);
+let nums = [1, 2, 3, null, 5, null, 7, null, null, null, null, null, null, 14];
+console.log(LeetCode.binaryTreeToArr(LeetCode.arrToBinaryTree(nums)));
