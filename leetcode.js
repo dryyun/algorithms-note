@@ -1,6 +1,13 @@
+// Definition for singly-linked list.
 function ListNode(val) {
     this.val = val;
     this.next = null;
+}
+
+// Definition for a binary tree node.
+function BinaryTreeNode(val) {
+    this.val = val;
+    this.left = this.right = null;
 }
 
 class LeetCode {
@@ -42,6 +49,73 @@ class LeetCode {
         return str;
     }
 
+    /**
+     * 数组转二叉树
+     * @param arr
+     * @return {BinaryTreeNode}
+     */
+    static arrToBinaryTree(arr) {
+        let nodes = [];
+
+        let head = null, parent = null, left = null, right = null;
+        for (let i = 0, len = arr.length; i < len; i++) {
+            if (arr[i] === undefined || arr[i] === null) {
+                continue;
+            }
+
+            if (0 === i) {
+                parent = new BinaryTreeNode(arr[i]);
+                head = parent;
+            } else {
+                parent = nodes[i];
+            }
+
+            left = 2 * (i + 1);
+            left = left - 1;
+            if (arr[left] !== undefined && arr[left] !== null) {
+                let ln = new BinaryTreeNode(arr[left]);
+                nodes[left] = ln;
+                parent.left = ln;
+            }
+
+            right = left + 1;
+            if (arr[right] !== undefined && arr[right] !== null) {
+                let rn = new BinaryTreeNode(arr[right]);
+                nodes[right] = rn;
+                parent.right = rn;
+            }
+        }
+
+        return head;
+    }
+
+    /**
+     * 二叉树转数组
+     * @param head
+     * @return {Array}
+     */
+    static binaryTreeToArr(head) {
+        if (!head) {
+            return [];
+        }
+
+        let stack = [];
+        stack.push(head);
+
+        let arr = [];
+        while (stack.length) {
+            let node = stack.shift();
+            arr.push(node ? node.val : null);
+            if (node.left) {
+                node ? stack.push(node.left) : stack.push(null);
+            }
+            if (node.right) {
+                node ? stack.push(node.right) : stack.push(null);
+            }
+        }
+        return arr;
+    }
+
 }
 
-module.exports = {LeetCode, ListNode};
+module.exports = {LeetCode, ListNode, BinaryTreeNode};
