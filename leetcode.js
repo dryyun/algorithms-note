@@ -51,6 +51,13 @@ class LeetCode {
 
     /**
      * 数组转二叉树
+     * 针对一下结构，可以输入数组全数组[1,null,2,null,null,3]
+     * 可以输入省略数组 [1,null,2,3]
+        1
+          \
+          2
+         /
+        3
      * @param arr
      * @return {TreeNode}
      */
@@ -58,8 +65,18 @@ class LeetCode {
         let nodes = [];
 
         let head = null, parent = null, left = null, right = null;
-        for (let i = 0, len = arr.length; i < len; i++) {
+        for (let i = 0; i < arr.length; i++) {
+            left = 2 * (i + 1);
+            left = left - 1;
+            right = left + 1;
             if (arr[i] === undefined || arr[i] === null) {
+
+                if (arr[left] || arr[right]) {
+                    let prefix = arr.slice(0, left);
+                    let last = arr.slice(left);
+                    let tArr = prefix.concat([null, null], last);
+                    arr = tArr;
+                }
                 continue;
             }
 
@@ -70,15 +87,13 @@ class LeetCode {
                 parent = nodes[i];
             }
 
-            left = 2 * (i + 1);
-            left = left - 1;
+            // left
             if (arr[left] !== undefined && arr[left] !== null) {
                 let ln = new TreeNode(arr[left]);
                 nodes[left] = ln;
                 parent.left = ln;
             }
-
-            right = left + 1;
+            // right
             if (arr[right] !== undefined && arr[right] !== null) {
                 let rn = new TreeNode(arr[right]);
                 nodes[right] = rn;
@@ -92,9 +107,10 @@ class LeetCode {
     /**
      * 二叉树转数组
      * @param head
+     * @param {Boolean} full ，是否返回全数组，参考 arrToBinaryTree 注释 
      * @return {Array}
      */
-    static binaryTreeToArr(head) {
+    static binaryTreeToArr(head, full = true) {
         if (!head) {
             return [];
         }
@@ -121,7 +137,24 @@ class LeetCode {
             }
             arr[num] = node.val;
         }
-        return arr.slice(1, num + 1);
+        arr.shift();
+        arr.length = num;
+        if (!full) {
+            let left = null, right = null;
+            for (let i = 0; i < arr.length; i++) {
+                if (!arr[i]) {
+                    left = 2 * (i + 1);
+                    left = left - 1;
+                    right = left + 1;
+
+                    let prefix = arr.slice(0, left);
+                    let last = arr.slice(right + 1);
+                    let tArr = prefix.concat(last);
+                    arr = tArr;
+                }
+            }
+        }
+        return arr;
     }
 
 }
