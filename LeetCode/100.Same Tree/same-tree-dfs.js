@@ -25,7 +25,7 @@ function dfs(p, q) {
     }
 
     if ((p === null || q === null)) {
-        p !== q ? isEqual = false : isEqual = true;
+        isEqual = p === q;
         return;
     }
     if (p.val !== q.val) {
