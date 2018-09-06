@@ -86,7 +86,7 @@ class BinaryTreeTraversal {
     }
 
     /**
-     * 二叉树中序遍历 - 递归实现
+     * 二叉树后序遍历 - 递归实现
      * @param {TreeNode} root
      * @return {Array}
      */
