@@ -6,7 +6,7 @@
  * }
  */
 
-const {LeetCode, BinaryTreeNode} = require('../../leetcode.js');
+const {LeetCode, TreeNode} = require('../../leetcode.js');
 
 /**
  * @param {TreeNode} p

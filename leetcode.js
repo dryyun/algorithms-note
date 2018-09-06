@@ -5,7 +5,7 @@ function ListNode(val) {
 }
 
 // Definition for a binary tree node.
-function BinaryTreeNode(val) {
+function TreeNode(val) {
     this.val = val;
     this.left = this.right = null;
 }
@@ -52,7 +52,7 @@ class LeetCode {
     /**
      * 数组转二叉树
      * @param arr
-     * @return {BinaryTreeNode}
+     * @return {TreeNode}
      */
     static arrToBinaryTree(arr) {
         let nodes = [];
@@ -64,7 +64,7 @@ class LeetCode {
             }
 
             if (0 === i) {
-                parent = new BinaryTreeNode(arr[i]);
+                parent = new TreeNode(arr[i]);
                 head = parent;
             } else {
                 parent = nodes[i];
@@ -73,14 +73,14 @@ class LeetCode {
             left = 2 * (i + 1);
             left = left - 1;
             if (arr[left] !== undefined && arr[left] !== null) {
-                let ln = new BinaryTreeNode(arr[left]);
+                let ln = new TreeNode(arr[left]);
                 nodes[left] = ln;
                 parent.left = ln;
             }
 
             right = left + 1;
             if (arr[right] !== undefined && arr[right] !== null) {
-                let rn = new BinaryTreeNode(arr[right]);
+                let rn = new TreeNode(arr[right]);
                 nodes[right] = rn;
                 parent.right = rn;
             }
@@ -126,4 +126,4 @@ class LeetCode {
 
 }
 
-module.exports = {LeetCode, ListNode, BinaryTreeNode};
+module.exports = {LeetCode, ListNode, TreeNode};
