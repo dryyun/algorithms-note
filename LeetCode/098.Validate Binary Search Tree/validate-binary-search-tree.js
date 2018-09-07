@@ -12,24 +12,22 @@ const {LeetCode, TreeNode} = require('../../leetcode.js');
  * @return {boolean}
  */
 var isValidBST = function (root) {
+    let bool = true;
     let last = Number.MIN_SAFE_INTEGER;
-    let stack = [];
-    let node = root;
-    while (node || stack.length) {
-        if (node) {
-            stack.push(node);
-            node = node.left;
-        } else {
-            node = stack.pop();
-            if (node.val > last) {
-                last = node.val;
+    let ior = function (node) {
+        if (node && bool) {
+            ior(node.left);
+            if (node.val <= last) {
+                bool = false;
+                return;
             } else {
-                return false;
+                last = node.val;
             }
-            node = node.right;
+            ior(node.right);
         }
-    }
-    return true;
+    };
+    ior(root);
+    return bool;
 };
 
 console.log(isValidBST(LeetCode.arrToBinaryTree([2, 1, 3]))); // true
