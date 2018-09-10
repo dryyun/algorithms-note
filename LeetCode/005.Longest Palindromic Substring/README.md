@@ -20,3 +20,8 @@ https://leetcode-cn.com/problems/longest-palindromic-substring/description/
 输入: "cbbd"
 输出: "bb"
 ```
+
+## 思路
+
+### 动态规划
+动态规划有点慢呀。
