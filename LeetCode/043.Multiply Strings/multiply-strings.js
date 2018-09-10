@@ -30,5 +30,5 @@ var multiply = function (num1, num2) {
 
 };
 
-console.log(multiply('2', '3'));
+console.log(multiply('8', '8'));
 console.log(multiply('123', '456'));
