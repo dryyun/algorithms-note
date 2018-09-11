@@ -10,6 +10,12 @@ function TreeNode(val) {
     this.left = this.right = null;
 }
 
+// Definition for an interval.
+function Interval(start, end) {
+    this.start = start;
+    this.end = end;
+}
+
 class LeetCode {
     /**
      * 数组转换成 list
@@ -53,11 +59,11 @@ class LeetCode {
      * 数组转二叉树
      * 针对一下结构，可以输入数组全数组[1,null,2,null,null,3]
      * 可以输入省略数组 [1,null,2,3]
-        1
-          \
-          2
-         /
-        3
+     *  1
+     *    \
+     *    2
+     *   /
+     *  3
      * @param arr
      * @return {TreeNode}
      */
@@ -107,7 +113,7 @@ class LeetCode {
     /**
      * 二叉树转数组
      * @param head
-     * @param {Boolean} full ，是否返回全数组，参考 arrToBinaryTree 注释 
+     * @param {Boolean} full ，是否返回全数组，参考 arrToBinaryTree 注释
      * @return {Array}
      */
     static binaryTreeToArr(head, full = true) {
@@ -157,6 +163,50 @@ class LeetCode {
         return arr;
     }
 
+    /**
+     * 数组转区间
+     * @param arr
+     * @return {Interval}
+     */
+    static arrToInterval(arr) {
+        return new Interval(arr[0], arr[1]);
+    }
+
+    /**
+     * 二维数组转成一维区间数组
+     * @param twoArr
+     * @return {Interval[]}
+     */
+    static twoArrToInterval(twoArr) {
+        let ia = [];
+        twoArr.forEach(v => {
+            ia.push(new Interval(v[0], v[1]));
+        });
+        return ia;
+    }
+
+    /**
+     *
+     * @param {Interval} interval
+     * @return {Array}
+     */
+    static intervalToArr(interval) {
+        return [interval.start, interval.end];
+    }
+
+    /**
+     * 一维区间数组，转二维数组
+     * @param {Interval[]} intervalArr
+     * @return {Array}
+     */
+    static intervalArrToArr(intervalArr) {
+        let arr = [];
+        intervalArr.forEach(i => {
+            arr.push([i.start, i.end]);
+        });
+        return arr;
+    }
+
 }
 
-module.exports = {LeetCode, ListNode, TreeNode};
+module.exports = {LeetCode, ListNode, TreeNode, Interval};
