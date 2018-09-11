@@ -5,30 +5,48 @@
  */
 var getPermutation = function (n, k) {
     let ns = [], arr = [];
-    for (let i = 1; i <= n; i++) {
-        i > 1 ? ns[i] = ns[i - 1] * i : ns[i] = i;
+    ns[1] = 1;
+    arr[1] = 1;
+    for (let i = 2; i <= n; i++) {
+        ns[i] = ns[i - 1] * i;
         arr[i] = i;
     }
-    let nall = ns[n];
-    let ndan = nall / n;
-    console.log(ndan);
+    if (1 === k) {
+        return arr.join('');
+    }
+    if (ns[n] === k) {
+        arr.reverse();
+        return arr.join('');
+    }
 
-    let r = Math.ceil(k / (ns[n] / n));
-    [arr[1], arr[r]] = [arr[r], arr[1]];
-    console.log(r);
+    let result = '';
+    let i = 1;
+    while (i < n) {
+        let c = n - i + 1;
+        let r = k / (ns[c] / c);
 
-    console.log(ns);
-    console.log(arr); // 24
-    // console.log(9 / (all / n)); // 9 / 6 = 1.5
+        let m = Math.ceil(r);
 
-    //1,2,3,4
-    //2 ,1,3,4
-    // k = 3
-    // all = 6 , 3/(6/3) = 1.5 // 23, 14
+        result += arr[m + i - 1];
+        arr.splice(m + i - 1, 1);
 
-
+        if (r === m) {
+            r -= 1;
+        }
+        k -= Math.floor(r) * (ns[c] / c);
+        n--;
+    }
+    return result + arr[1];
 };
 
-
-// console.log(getPermutation(3, 3));
+console.log(getPermutation(1, 1));
+console.log(getPermutation(2, 1));
+console.log(getPermutation(2, 2));
+console.log(getPermutation(3, 1));
+console.log(getPermutation(3, 2));
+console.log(getPermutation(3, 3));
+console.log(getPermutation(3, 4));
+console.log(getPermutation(3, 5));
+console.log(getPermutation(3, 6));
 console.log(getPermutation(4, 9));
+console.log(getPermutation(4, 24));
