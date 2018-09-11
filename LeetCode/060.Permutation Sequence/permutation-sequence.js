@@ -4,11 +4,20 @@
  * @return {string}
  */
 var getPermutation = function (n, k) {
-    let arr = [];
-    arr[1] = 1;
-    for (let i = 2; i <= n; i++) {
-        arr[i] = arr[i - 1] * i;
+    let ns = [], arr = [];
+    for (let i = 1; i <= n; i++) {
+        i > 1 ? ns[i] = ns[i - 1] * i : ns[i] = i;
+        arr[i] = i;
     }
+    let nall = ns[n];
+    let ndan = nall / n;
+    console.log(ndan);
+
+    let r = Math.ceil(k / (ns[n] / n));
+    [arr[1], arr[r]] = [arr[r], arr[1]];
+    console.log(r);
+
+    console.log(ns);
     console.log(arr); // 24
     // console.log(9 / (all / n)); // 9 / 6 = 1.5
 
