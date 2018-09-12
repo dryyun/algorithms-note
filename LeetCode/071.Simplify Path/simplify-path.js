@@ -7,11 +7,10 @@ var simplifyPath = function (path) {
     let arr = path.split('/');
     for (let i = 0, len = arr.length; i < len; i++) {
         let p = arr[i].trim();
-        if ('' === p) {
+        if ('' === p || '.' === p) {
             continue;
         }
-        if ('.' === p) {
-        } else if ('..' === p) {
+        if ('..' === p) {
             s.pop();
             s.pop();
         } else {
