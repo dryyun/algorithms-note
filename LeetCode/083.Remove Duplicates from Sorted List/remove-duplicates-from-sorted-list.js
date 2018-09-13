@@ -1,4 +1,12 @@
 /**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+const {LeetCode, ListNode} = require('../../leetcode.js');
+/**
  * @param {ListNode} head
  * @return {ListNode}
  */
@@ -21,9 +29,5 @@ var deleteDuplicates = function (head) {
     return list;
 };
 
-
-// Definition for singly-linked list.
-function ListNode(val) {
-    this.val = val;
-    this.next = null;
-}
+LeetCode.showList(deleteDuplicates(LeetCode.arrToList([1, 1, 2])));
+LeetCode.showList(deleteDuplicates(LeetCode.arrToList([1, 1, 2, 3, 3])));
