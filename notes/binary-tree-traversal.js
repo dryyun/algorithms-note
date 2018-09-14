@@ -103,6 +103,15 @@ class BinaryTreeTraversal {
         return arr;
     }
 
+    /**
+     * 从前序与中序遍历序列构造二叉树
+     * @param {Array} preorder
+     * @param {Array} inorder
+     */
+    static buildTreeByPreAndInOrder(preorder, inorder) {
+
+    }
+
 }
 
 module.exports = BinaryTreeTraversal;
