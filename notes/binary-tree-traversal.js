@@ -107,10 +107,55 @@ class BinaryTreeTraversal {
      * 从前序与中序遍历序列构造二叉树
      * @param {Array} preorder
      * @param {Array} inorder
+     * @return {TreeNode|*}
      */
     static buildTreeByPreAndInOrder(preorder, inorder) {
+        let bt = function (preorder, pres, preend, inorder, ins, inend) {
+            if (pres > preend) {
+                return null;
+            }
 
+            let root = preorder[pres];
+            let rootIndex = inorder.indexOf(root);
+            let leftInOrderLen = rootIndex - ins;
+
+            let rnode = new TreeNode(root);
+            rnode.left = bt(preorder, pres + 1, pres + leftInOrderLen, inorder, ins, ins + leftInOrderLen - 1);
+            rnode.right = bt(preorder, pres + leftInOrderLen + 1, preend, inorder, ins + leftInOrderLen + 1, inend);
+            return rnode;
+        };
+
+        return bt(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
     }
+
+    /**
+     * 从中序与后序遍历序列构造二叉树
+     * @param {Array} inorder
+     * @param {Array} postorder
+     * @return {TreeNode|*}
+     */
+    static buildTreeByInAndPostOrder(inorder, postorder) {
+        if (inorder.length === 0) {
+            return null;
+        }
+        let postOrderLen = postorder.length;
+        let rootVal = postorder[postOrderLen - 1];
+
+        let rootIndex = inorder.indexOf(rootVal);
+        let leftInOrder = inorder.slice(0, rootIndex);
+        let rightInOrder = inorder.slice(rootIndex + 1);
+        let leftInOrderLen = leftInOrder.length;
+
+        let leftPostOrder = postorder.slice(0, leftInOrderLen);
+        let rightPostOrder = postorder.slice(leftInOrderLen, -1);
+
+        let rnode = new TreeNode(rootVal);
+
+        rnode.left = LeetCode.buildTreeByInAndPostOrder(leftInOrder, leftPostOrder);
+        rnode.right = LeetCode.buildTreeByInAndPostOrder(rightInOrder, rightPostOrder);
+        return rnode;
+    }
+
 
 }
 
