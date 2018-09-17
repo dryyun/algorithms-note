@@ -10,6 +10,14 @@ function TreeNode(val) {
     this.left = this.right = null;
 }
 
+
+// Definition for binary tree with next pointer.
+function TreeLinkNode(val) {
+    this.val = val;
+    this.left = this.right = this.next = null;
+}
+
+
 // Definition for an interval.
 function Interval(start, end) {
     this.start = start;
@@ -65,9 +73,10 @@ class LeetCode {
      *   /
      *  3
      * @param arr
-     * @return {TreeNode}
+     * @param strut
+     * @return {TreeNode|TreeLinkNode}
      */
-    static arrToBinaryTree(arr) {
+    static arrToBinaryTree(arr, strut = TreeNode) {
         let nodes = [];
 
         let head = null, parent = null, left = null, right = null;
@@ -87,7 +96,7 @@ class LeetCode {
             }
 
             if (0 === i) {
-                parent = new TreeNode(arr[i]);
+                parent = new strut(arr[i]);
                 head = parent;
             } else {
                 parent = nodes[i];
@@ -95,13 +104,13 @@ class LeetCode {
 
             // left
             if (arr[left] !== undefined && arr[left] !== null) {
-                let ln = new TreeNode(arr[left]);
+                let ln = new strut(arr[left]);
                 nodes[left] = ln;
                 parent.left = ln;
             }
             // right
             if (arr[right] !== undefined && arr[right] !== null) {
-                let rn = new TreeNode(arr[right]);
+                let rn = new strut(arr[right]);
                 nodes[right] = rn;
                 parent.right = rn;
             }
@@ -209,4 +218,4 @@ class LeetCode {
 
 }
 
-module.exports = {LeetCode, ListNode, TreeNode, Interval};
+module.exports = {LeetCode, ListNode, TreeNode, TreeLinkNode, Interval};
