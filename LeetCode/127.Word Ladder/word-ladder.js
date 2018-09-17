@@ -10,17 +10,17 @@ var ladderLength = function (beginWord, endWord, wordList) {
     }
 
     let len = wordList.length;
-    let stack = [];
+    let queue = [];
     let book = [];
-    stack.push([beginWord, 1]);
-    while (stack.length) {
-        let [pop, step] = stack.shift();
+    queue.push([beginWord, 1]);
+    while (queue.length) {
+        let [pop, step] = queue.shift();
         if (pop === endWord) {
             return step;
         }
         for (let i = 0; i < len; i++) {
             if (!book[i] && isDifOne(pop, wordList[i])) {
-                stack.push([wordList[i], step + 1]);
+                queue.push([wordList[i], step + 1]);
                 book[i] = 1;
             }
         }
