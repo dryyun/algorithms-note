@@ -4,34 +4,30 @@
  * @return {boolean}
  */
 var wordBreak = function (s, wordDict) {
-    // let wordMap = {};
-    // wordDict.forEach(w => {
-    //     wordMap[w] = 1;
-    // });
-
-    let dp = [];
-    dp[0] = true;
-
     let len = s.length;
-    for (let i = 0; i <= len; i++) {
-        for (let j = 0; j < i; j++) {
-            if (dp[j] && wordDict.indexOf(s.substr(j, i - j))!==-1) {
-                console.log(s.substr(j, i - j));
-                // console.log('asd');
-                // let t = s.substr(j, i - j);
-                // console.log(t);
-                // if (wordMap[t]) {
-                    dp[i] = true;
-                    break;
-                // }
+    let wordMap = {};
+    wordDict.forEach(w => {
+        wordMap[w] = 1;
+    });
 
+    let isCan = false;
+    let dfs = function (start) {
+        if (isCan) {
+            return;
+        }
+        if (start === len) {
+            isCan = true;
+            return;
+        }
+        for (let i = start; i < len; i++) {
+            let w = s.substr(start, i - start + 1);
+            if (wordMap[w]) {
+                dfs(i + 1);
             }
         }
-    }
-    // console.log(dp, dp[len]);
-
-    return dp[len] ? true : false;
-
+    };
+    dfs(0);
+    return isCan;
 };
 
 
