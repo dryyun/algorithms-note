@@ -24,6 +24,14 @@ function Interval(start, end) {
     this.end = end;
 }
 
+
+// Definition for undirected graph.
+function UndirectedGraphNode(label) {
+    this.label = label;
+    this.neighbors = [];   // Array of UndirectedGraphNode
+}
+
+
 class LeetCode {
     /**
      * 数组转换成 list
@@ -218,4 +226,4 @@ class LeetCode {
 
 }
 
-module.exports = {LeetCode, ListNode, TreeNode, TreeLinkNode, Interval};
+module.exports = {LeetCode, ListNode, TreeNode, TreeLinkNode, Interval, UndirectedGraphNode};
