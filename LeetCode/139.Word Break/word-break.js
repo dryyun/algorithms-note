@@ -19,9 +19,9 @@ var wordBreak = function (s, wordDict) {
     return !!dp[len];
 };
 
-
 console.log(wordBreak('leetcode', ["leet", "code"]));
 console.log(wordBreak('applepenapple', ['apple', 'pen']));
 console.log(wordBreak('catsandog', ["cats", "dog", "sand", "and", "cat"]));
+console.log(wordBreak("aaaaaaa", ["aaaa", "aaa"])); //
 console.log(wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
     , ["a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"]));

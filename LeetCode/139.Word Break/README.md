@@ -38,4 +38,11 @@ https://leetcode-cn.com/problems/word-break/description/
 
 ### 思路 2 
 
-动态规划 DP ，
+动态规划 DP 
+
+let dp = [];
+dp[i] 表示 字符串 [0-i) (不包括 i) ，是否可以被分词
+
+dp[i] = dp[j] && ( s[j,i] in dirt ) 
+
+初始条件 dp[0] = true 
