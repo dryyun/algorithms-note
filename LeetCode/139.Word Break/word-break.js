@@ -4,34 +4,19 @@
  * @return {boolean}
  */
 var wordBreak = function (s, wordDict) {
-    // let wordMap = {};
-    // wordDict.forEach(w => {
-    //     wordMap[w] = 1;
-    // });
-
     let dp = [];
     dp[0] = true;
 
     let len = s.length;
-    for (let i = 0; i <= len; i++) {
+    for (let i = 1; i <= len; i++) {
         for (let j = 0; j < i; j++) {
-            if (dp[j] && wordDict.indexOf(s.substr(j, i - j))!==-1) {
-                console.log(s.substr(j, i - j));
-                // console.log('asd');
-                // let t = s.substr(j, i - j);
-                // console.log(t);
-                // if (wordMap[t]) {
-                    dp[i] = true;
-                    break;
-                // }
-
+            if (dp[j] && wordDict.indexOf(s.substr(j, i - j)) !== -1) {
+                dp[i] = true;
+                break;
             }
         }
     }
-    // console.log(dp, dp[len]);
-
-    return dp[len] ? true : false;
-
+    return !!dp[len];
 };
 
 

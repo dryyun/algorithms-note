@@ -29,3 +29,13 @@ https://leetcode-cn.com/problems/word-break/description/
 输入: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
 输出: false
 ```
+
+## 思路
+
+### 思路 1 
+
+深度优先搜索，DFS 实现，方法可行，但是面对超长数据，会超时
+
+### 思路 2 
+
+动态规划 DP ，
