@@ -29,3 +29,5 @@ https://leetcode-cn.com/problems/largest-number/description/
 3,30,31 => 33130，3 补全成 33 
 3,30,310 => 331030 ，
 3，31，340，
+
+主要就是写出这个排序规则  
