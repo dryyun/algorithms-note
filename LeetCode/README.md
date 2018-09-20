@@ -1,4 +1,4 @@
-# LeetCode 算法提交记录
+# LeetCode 算法刷题记录 
 
 中文对应 - https://leetcode-cn.com/problemset/algorithms/   
 
@@ -10,9 +10,10 @@
 > leetcode 提交代码的执行时间，肯定是看心情的，同样代码多次提交可以几十 ms，可以几百 ms 
 
 
-_**刷题真心累，真心花时间，还是智商不够**_
 
-## TODO List 
-- [015.3Sum](./015.3Sum)    
-- [018.4Sum](./018.4Sum)  
-- [022.Generate Parentheses](./022.Generate%20Parentheses)  
+_**刷题真心累，真心花时间，主要还是智商不够**_  
+
+- 2018.8.28 确定小目标，刷前 200 的简单和中等。
+- 2018.9.19 小目标基本完成。
+
+
