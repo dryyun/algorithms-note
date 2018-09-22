@@ -1,20 +1,19 @@
-"use strict";
-
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-    let map = new Map();
+    let numMap = [];
     for (let i = 0, len = nums.length; i < len; i++) {
-        let a = target - nums[i];
-        if (map.has(a)) {
-            return [map.get(a), i];
+        let num = target - nums[i];
+        if (numMap[num] !== undefined) {
+            return [numMap[num], i];
+        } else {
+            numMap[nums[i]] = i;
         }
-        map.set(nums[i], i);
     }
-    return null;
+    return [];
 };
 
 console.log(twoSum([2, 7, 11, 15], 9));
