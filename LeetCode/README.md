@@ -1,8 +1,8 @@
 # LeetCode 算法刷题记录 
 
-中文对应 - https://leetcode-cn.com/problemset/algorithms/   
+中文网址 - https://leetcode-cn.com/problemset/algorithms/   
 
-英文对应 - https://leetcode.com/problemset/algorithms/   
+英文网址 - https://leetcode.com/problemset/algorithms/   
 
 > 先定个小目标，解决前面 200 题的简单 和 中等，尝试解决`困难`  
 
