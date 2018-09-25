@@ -1,7 +1,7 @@
 /**
  * 二叉树遍历的实现
  */
-const {LeetCode, TreeNode} = require('../leetcode.js');
+const {LeetCode, TreeNode} = require('../LeetCode/leetcode.js');
 
 class BinaryTreeTraversal {
     /**
