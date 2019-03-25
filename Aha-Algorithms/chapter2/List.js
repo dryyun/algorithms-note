@@ -1,4 +1,13 @@
-const ListNode = require('./ListNode.js');
+/**
+ *  list 实现
+ */
+
+class ListNode {
+    constructor(value, next = null) {
+        this.value = value;
+        this.next = next;
+    }
+}
 
 class List {
     constructor() {
@@ -33,4 +42,7 @@ class List {
 
 }
 
-module.exports = List;
+module.exports = {
+    List,
+    ListNode
+}

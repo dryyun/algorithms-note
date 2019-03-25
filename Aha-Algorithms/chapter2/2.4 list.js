@@ -1,10 +1,8 @@
 "use strict";
 
-const List = require('./List.js');
-const ListNode = require('./ListNode.js');
+const {List, ListNode} = require('./List.js');
 
 class SortList extends List {
-
     /**
      * 按数字顺序插入 value
      * @param value
