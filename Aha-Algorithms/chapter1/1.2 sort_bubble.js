@@ -19,31 +19,14 @@ console.log('排序数组', arr);
  * @returns {Array}
  */
 function bubbleSort(arr) {
-    let len = arr.length;
-    for (let i = 0; i < len - 1; i++) {
-        for (let j = i + 1; j < len; j++) {
-            if (arr[i] > arr[j]) {
-                [arr[i], arr[j]] = [arr[j], arr[i]]
-            }
-        }
-    }
-    return arr;
-}
-
-/**
- * 冒泡排序，从小到大排序，把最大的数放到末尾
- * @param arr
- * @returns {Array}
- */
-function bubbleSort2(arr) {
-    let len = arr.length;
-    for (let i = 0; i < len - 1; i++) {
-        for (let j = 0; j < len - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
+    let length = arr.length;
+    for (let i = 0; i < length - 1; i++) {
+        for (let j = 0; j < length - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) { // 修改这判断，可以改成从大到小排序
                 [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
             }
         }
     }
-    return arr;
+    return arr
 }
 
