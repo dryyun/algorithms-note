@@ -1,10 +1,14 @@
 /**
- * 图的遍历 dfs 实现
+ * 图的遍历 dfs 深度优先搜索 实现
  */
 "use strict";
 
 const util = require('../../util.js');
 
+/**
+ * 图的邻接矩阵表示
+ * @type {number[][]}
+ */
 var map = [
     [0, 1, 1, NaN, 1],
     [1, 0, NaN, 1, NaN],
