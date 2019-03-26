@@ -14,15 +14,15 @@ var lessons = {
 function nextLesson(currentLesson) {
     let minEnd = 99999;
     let lesson = null;
-    Object.keys(lessons).forEach(l => {
+    Object.keys(lessons).forEach(les => {
         let c = true;
-        if (currentLesson && lessons[l][0] < lessons[currentLesson][1]) { // 大于等于上一节课的结束时间
+        if (currentLesson && lessons[les][0] < lessons[currentLesson][1]) { // 大于等于上一节课的结束时间
             c = false;
         }
 
-        if (c && minEnd > lessons[l][1]) {
-            minEnd = lessons[l][1];
-            lesson = l;
+        if (c && minEnd > lessons[les][1]) {
+            minEnd = lessons[les][1];
+            lesson = les;
         }
 
     });

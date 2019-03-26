@@ -7,11 +7,7 @@ function max(list) {
     if (1 === list.length) {
         return list[0];
     }
-
-    let last = list.pop();
-    let rec = max(list);
-
-    return last >= rec ? last : rec;
+    return Math.max(list.pop(), max(list));
 }
 
 console.log(max([1, 5, 10, 25, 16, 1]));
