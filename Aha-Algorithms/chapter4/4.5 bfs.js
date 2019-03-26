@@ -1,5 +1,6 @@
 /**
  * 宝岛探险 bfs 实现某岛面积多大
+ * 0 表示海洋，1~9 表示陆地，从起点开始，使用广度搜索把陆地的数字相加
  */
 "use strict";
 
@@ -34,7 +35,7 @@ queue.enqueue(start);
 book.set(start.toString(), 1);
 
 while (!queue.isEmpty()) {
-    let first = queue.first();
+    let first = queue.dequeue();
     for (let i = 0; i < next.length; i++) {
         let current = Coord.newCoord(first);
         current.next(next[i]);
@@ -47,6 +48,5 @@ while (!queue.isEmpty()) {
             }
         }
     }
-    queue.dequeue();
 }
 console.log(sum);

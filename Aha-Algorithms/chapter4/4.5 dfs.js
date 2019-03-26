@@ -1,5 +1,7 @@
 /**
- * 宝岛探险 dfs 实现有多少个独立岛屿，着色
+ * 深度搜索
+ * 宝岛探险 dfs 实现有多少个独立岛屿
+ * 使用着色法，把同一片陆地标记为一个数字
  */
 "use strict";
 
@@ -55,3 +57,4 @@ for (let i = 0; i < map.length; i++) {
 }
 
 console.log(map);
+console.log('共有独立岛屿', Math.abs(number + 1))

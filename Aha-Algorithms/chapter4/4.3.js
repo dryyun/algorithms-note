@@ -37,7 +37,7 @@ book.set(start.toString(), 1);
 var flag = 0;
 
 while (!queue.isEmpty()) {
-    let first = queue.first();
+    let first = queue.dequeue();
     for (let i = 0; i < next.length; i++) {
         let current = Coord.newCoord(first.coord);
         current.next(next[i]);
@@ -61,7 +61,6 @@ while (!queue.isEmpty()) {
     if (1 === flag) {
         break;
     }
-    queue.dequeue();
 }
 
 if (1 === flag) {
