@@ -28,7 +28,7 @@ function lcs(wordA, wordB) {
         }
     }
     return {
-        lcs: lcs,
+        lcs,
         offset: lastSubIndex - lcs + 1,
         sequence: wordA.slice(lastSubIndex - lcs + 1, lastSubIndex + 1)
     };
