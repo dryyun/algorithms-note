@@ -10,20 +10,19 @@ const {LeetCode} = require('../../leetcode.js');
  * @param {TreeNode} root
  * @return {number[]}
  */
-var arr;
 var inorderTraversal = function (root) {
-    arr = [];
-    recursion(root);
+    let arr = [];
+
+    let ior = function (root) {
+        if (root) {
+            ior(root.left);
+            arr.push(root.val);
+            ior(root.right);
+        }
+    };
+    ior(root);
     return arr;
 };
-
-function recursion(root) {
-    if (root) {
-        recursion(root.left);
-        arr.push(root.val);
-        recursion(root.right);
-    }
-}
 
 console.log(inorderTraversal(LeetCode.arrToBinaryTree([1, null, 2, 3])));
 console.log(inorderTraversal(LeetCode.arrToBinaryTree(['a', 'b', 'c', 'd', 'f', null, null, null, 'e', 'g'])));
