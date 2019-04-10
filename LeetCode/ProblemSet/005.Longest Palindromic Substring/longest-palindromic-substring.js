@@ -8,31 +8,25 @@ var longestPalindrome = function (s) {
         return s;
     }
 
-    let start = 0, sl = 1;
-
-    let dp = [];
-    dp[0] = [];
-    dp[0][0] = true;
-    for (let i = 1; i < len; i++) {
-        dp[i] = [];
-        dp[i][i] = true;
-        if (s[i - 1] === s[i]) {
-            start = i - 1;
-            sl = 2;
-            dp[i - 1][i] = true;
-        }
+    let dp = []
+    for (let i = 0; i < len; i++) {
+        dp[i] = new Array(len);
     }
 
-    for (let k = 3; k <= len; k++) {
-        for (let i = 0; i <= len - k; i++) {
-            if (s[i] === s[i + k - 1] && dp[i + 1][i + k - 2]) {
-                dp[i][i + k - 1] = true;
-                start = i;
-                sl = k;
+    let st = 0, sl = 0
+    for (let i = len - 2; i >= 0; i--) {
+        dp[i][i] = true
+        for (let j = i + 1; j < len; j++) {
+            if (s[i] === s[j] && (j - i < 3 || dp[i + 1][j - 1])) {
+                dp[i][j] = true
+                if (j - i > sl) {
+                    st = i
+                    sl = j - i
+                }
             }
         }
     }
-    return s.substr(start, sl);
+    return s.substring(st, st + sl + 1)
 };
 
 console.log(longestPalindrome('babad'));
