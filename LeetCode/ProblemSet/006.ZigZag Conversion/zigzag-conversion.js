@@ -8,34 +8,23 @@ var convert = function (s, numRows) {
         return s;
     }
 
-    let arr = Array(numRows).fill(0);
-    for (let i = 0; i < numRows; i++) {
-        arr[i] = [];
-    }
+    let array = new Array(numRows);
 
-    let x = 0, acol = true; // acol 是否是一列
+    let num = 0, d = 1; //d = 1 =》 向下，d = -1 =》 斜上
     for (let i = 0, len = s.length; i < len; i++) {
-        arr[x].push(s[i]);
-
-        if (acol && x !== numRows - 1) {
-            x++;
-        } else if (acol && x === numRows - 1) {
-            x = numRows - 2;
-            acol = false;
-        } else if (!acol && x !== 0) {
-            x--;
-        } else if (!acol && x === 0) {
-            acol = true;
-            x++;
+        array[num] = (array[num] ? array[num] : '') + s[i]
+        num += d
+        if (num === numRows - 1) {
+            d = -1
+        } else if (num === 0) {
+            d = 1
         }
     }
-    let r = '';
-    arr.forEach(v => {
-        r += v.join('');
-    });
-    return r;
+    return array.join('')
 };
 
+console.log(convert('LEETCODEISHIRING', 3));
+console.log(convert('LEETCODEISHIRING', 4));
 console.log(convert('PAYPALISHIRING', 3));
 // console.log(convert('PAYPALISHIRING', 4));
 
