@@ -1,4 +1,4 @@
-package _006__ZigZag_Conversion
+package _006_ZigZag_Conversion
 
 import (
 	"github.com/stretchr/testify/assert"
