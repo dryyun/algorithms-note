@@ -1,16 +1,4 @@
-//package _005_Longest_Palindromic_Substring
-
-package main
-
-import "fmt"
-
-func main() {
-	//fmt.Println(longestPalindrome("s"))
-	fmt.Println(longestPalindrome("babad"))
-	fmt.Println(longestPalindrome("cbbd"))
-	fmt.Println(longestPalindrome("abc"))
-	fmt.Println(longestPalindrome("aaaa"))
-}
+package _005_Longest_Palindromic_Substring
 
 func longestPalindrome(s string) string {
 	length := len(s)
