@@ -10,5 +10,6 @@
         - two-sum.go 代码实现
         - two-sum_test.go 测试用例，进入目录运行 `go test -v` 即可 
         
+运行全部测试，进入 ProblemSet 目录，运行 `go test -v ./...` 
         
 引用第三方库使用了 go modules 
