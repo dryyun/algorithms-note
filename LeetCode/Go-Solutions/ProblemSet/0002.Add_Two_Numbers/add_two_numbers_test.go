@@ -2,7 +2,7 @@ package _002_Add_Two_Numbers
 
 import (
 	"github.com/stretchr/testify/assert"
-	. "leetcode-go-solution/helper"
+	. "github.com/dryyun/algorithms-note/LeetCode/Go-Solutions/helper"
 	"testing"
 )
 
